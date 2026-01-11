@@ -76,7 +76,8 @@ export default {
       },
       fontFamily: {
         serif: ["Cormorant Garamond", "serif"],
-        sans: ["Montserrat", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
+        heading: ["Playfair Display", "serif"],
       },
       keyframes: {
         "accordion-down": {
