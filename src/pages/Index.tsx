@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Dra. Mariana Bertoja | Advogada Empresarial em Gramado/RS</title>
+        <title>Mariana Bertoja | Advogada Empresarial</title>
         <meta
           name="description"
           content="Advogada especializada em Direito Empresarial, Societário e Planejamento Patrimonial. Atendimento personalizado em Gramado/RS e todo Brasil."
