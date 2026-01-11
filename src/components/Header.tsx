@@ -38,16 +38,15 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between h-20">
-          {/* Logo Placeholder */}
-          <a href="#" className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center">
-              <span className="text-primary font-serif text-xl font-bold">MB</span>
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center transition-colors group-hover:border-primary/50">
+              <span className="text-primary font-heading text-2xl font-bold pt-1">MB</span>
             </div>
             <div className="hidden sm:block">
-              <span className="text-foreground font-serif text-lg font-semibold tracking-wide">
+              <span className="text-foreground font-heading text-xl font-semibold tracking-wide block leading-none">
                 Mariana Bertoja
               </span>
-              <p className="text-muted-foreground text-xs tracking-widest uppercase">
+              <p className="text-muted-foreground text-[10px] tracking-[0.2em] uppercase mt-1 font-medium">
                 Advogada
               </p>
             </div>
@@ -66,7 +65,7 @@ const Header = () => {
             ))}
             <Button
               onClick={() => scrollToSection("#contato")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 font-medium"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp
@@ -84,13 +83,13 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 right-0 bg-background/98 backdrop-blur-md border-b border-border shadow-lg">
+          <div className="md:hidden absolute top-20 left-0 right-0 bg-background/98 backdrop-blur-md border-b border-border shadow-lg animate-in slide-in-from-top-5">
             <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium tracking-wide uppercase py-2"
+                  className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium tracking-wide uppercase py-2 text-left"
                 >
                   {link.label}
                 </button>
