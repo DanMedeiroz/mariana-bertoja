@@ -58,20 +58,28 @@ const HeroSection = () => {
 
           {/* Image Placeholder */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end opacity-0 animate-fade-in-right" style={{ animationDelay: "0.6s" }}>
-            <div className="relative">
+            <div className="relative group">
               {/* Decorative elements */}
-              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/20 rounded-2xl" />
-              <div className="absolute -bottom-4 -right-4 w-full h-full bg-primary/10 rounded-2xl" />
+              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/20 rounded-2xl transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
+              <div className="absolute -bottom-4 -right-4 w-full h-full bg-primary/10 rounded-2xl -z-10 transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2" />
               
               {/* Photo placeholder */}
-              <div className="relative w-80 h-[28rem] sm:w-96 sm:h-[32rem] bg-gradient-to-b from-secondary to-muted rounded-2xl overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground">
-                  <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                    <span className="text-4xl font-serif text-primary">MB</span>
+              <img 
+                  src="/mariana-hero.jpg" 
+                  alt="Dra. Mariana Bertoja"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+                {/* Gradiente Escuro na base para destacar o nome em branco */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center pb-6">
+                  <div className="text-center">
+                    <p className="text-white/90 font-serif text-lg font-medium tracking-wide">
+                      Dra. Mariana Bertoja
+                    </p>
+                    <div className="w-8 h-px bg-primary/80 mx-auto mt-2" />
                   </div>
-                  <p className="text-sm uppercase tracking-widest">Foto Profissional</p>
-                  <p className="text-xs mt-1">Dra. Mariana Bertoja</p>
                 </div>
+
               </div>
             </div>
           </div>
