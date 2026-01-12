@@ -6,25 +6,44 @@
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 30 15% 15%;
-    --card: 40 15% 96%;
-    --card-foreground: 30 15% 15%;
-    --popover: 40 20% 98%;
-    --popover-foreground: 30 15% 15%;
-    --primary: 35 30% 35%; /* Ajustei para um tom marrom/dourado escuro baseado na imagem */
-    --primary-foreground: 40 20% 98%;
-    --secondary: 40 10% 90%;
-    --secondary-foreground: 30 15% 15%;
-    --muted: 40 10% 90%;
+    /* Fundo: Off-white levemente quente (mais elegante que branco puro) */
+    --background: 40 20% 97%; 
+    
+    /* Texto Principal: Aquele Marrom Café do arquivo (#534741) */
+    --foreground: 30 12% 29%;
+
+    /* Cartões e elementos flutuantes */
+    --card: 40 20% 96%;
+    --card-foreground: 30 12% 29%;
+    --popover: 40 20% 97%;
+    --popover-foreground: 30 12% 29%;
+
+    /* PRIMÁRIA: O Dourado Exato da marca (#C69C6D) */
+    --primary: 32 45% 60%;
+    --primary-foreground: 0 0% 100%; /* Texto branco no botão dourado */
+
+    /* Secundária: Um tom de areia para fundos secundários */
+    --secondary: 35 30% 90%;
+    --secondary-foreground: 30 12% 29%;
+
+    /* Bordas sutis */
+    --muted: 35 30% 90%;
     --muted-foreground: 30 10% 40%;
     --accent: 35 30% 85%;
-    --accent-foreground: 35 30% 25%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 35 15% 85%;
-    --input: 35 15% 85%;
-    --ring: 35 30% 35%;
+    --accent-foreground: 30 12% 29%;
+    --border: 32 20% 85%;
+    --input: 32 20% 85%;
+    --ring: 32 45% 60%; /* Anel de foco da cor do dourado */
+    
     --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
