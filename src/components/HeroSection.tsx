@@ -68,7 +68,7 @@ const HeroSection = () => {
                 
                 {/* A Imagem em si */}
                 <img 
-                  src="/mariana-hero.jpg" 
+                  src="mariana-hero.jpg" 
                   alt="Dra. Mariana Bertoja"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
