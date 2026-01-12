@@ -7,13 +7,13 @@
 @layer base {
   :root {
     /* Fundo: Off-white levemente quente (mais elegante que branco puro) */
-    --background: 40 20% 97%; 
+    --background: 40 20% 85%; 
     
     /* Texto Principal: Aquele Marrom Café do arquivo (#534741) */
     --foreground: 30 12% 29%;
 
     /* Cartões e elementos flutuantes */
-    --card: 40 20% 96%;
+    --card: 40 20% 87%;
     --card-foreground: 30 12% 29%;
     --popover: 40 20% 97%;
     --popover-foreground: 30 12% 29%;
