@@ -56,15 +56,18 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Image Placeholder */}
+          {/* MUDANÇA AQUI: Área da Foto */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end opacity-0 animate-fade-in-right" style={{ animationDelay: "0.6s" }}>
             <div className="relative group">
-              {/* Decorative elements */}
+              {/* Elementos decorativos (Bordas atrás da foto) */}
               <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/20 rounded-2xl transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
               <div className="absolute -bottom-4 -right-4 w-full h-full bg-primary/10 rounded-2xl -z-10 transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2" />
               
-              {/* Photo placeholder */}
-              <img 
+              {/* Container da Foto Principal */}
+              <div className="relative w-80 h-[28rem] sm:w-96 sm:h-[32rem] bg-card rounded-2xl overflow-hidden shadow-2xl border border-primary/10">
+                
+                {/* A Imagem em si */}
+                <img 
                   src="/mariana-hero.jpg" 
                   alt="Dra. Mariana Bertoja"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
