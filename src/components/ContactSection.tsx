@@ -1,5 +1,6 @@
 import { MessageCircle, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import brandPattern from "@/assets/brand-pattern.png";
 
 const ContactSection = () => {
   const whatsappNumber = "5500000000000"; // Placeholder - substituir pelo número real
@@ -9,12 +10,16 @@ const ContactSection = () => {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
-    <section id="contato" className="py-24 bg-background relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent blur-3xl" />
-      </div>
+    <section id="contato" className="py-24 bg-secondary relative overflow-hidden">
+      {/* Brand Pattern Background */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url(${brandPattern})`,
+          backgroundSize: '400px',
+          backgroundRepeat: 'repeat',
+        }}
+      />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
