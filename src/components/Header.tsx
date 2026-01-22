@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoPrimary from "@/assets/logo-primary.png";
+import logoHorizontal from "@/assets/logo-horizontal.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,9 +41,9 @@ const Header = () => {
         <nav className="flex items-center justify-between h-20">
           <a href="#" className="flex items-center group">
             <img 
-              src={logoPrimary} 
-              alt="Mariana Bertoja Advocacia" 
-              className="h-24 sm:h-28 w-auto -my-4"
+              src={logoHorizontal} 
+              alt="Mariana Bertoja - Advocacia para Empresas" 
+              className="h-12 sm:h-14 w-auto"
             />
           </a>
 
