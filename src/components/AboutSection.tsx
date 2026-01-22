@@ -1,4 +1,5 @@
 import { Award, Users, Scale, Target } from "lucide-react";
+import marianaAbout from "@/assets/mariana-about.jpg";
 
 const AboutSection = () => {
   const highlights = [
@@ -28,16 +29,15 @@ const AboutSection = () => {
     <section id="sobre" className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image Placeholder */}
+          {/* Image */}
           <div className="relative">
             <div className="absolute -top-6 -left-6 w-32 h-32 border-2 border-primary/30 rounded-lg" />
-            <div className="relative w-full aspect-[4/5] max-w-md mx-auto bg-gradient-to-br from-muted to-secondary rounded-lg overflow-hidden shadow-xl">
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-muted-foreground">
-                <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                  <span className="text-3xl font-serif text-primary">MB</span>
-                </div>
-                <p className="text-sm uppercase tracking-widest">Foto da Advogada</p>
-              </div>
+            <div className="relative w-full aspect-[4/5] max-w-md mx-auto rounded-lg overflow-hidden shadow-xl">
+              <img 
+                src={marianaAbout} 
+                alt="Dra. Mariana Bertoja" 
+                className="w-full h-full object-cover object-center"
+              />
             </div>
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 rounded-lg -z-10" />
           </div>
