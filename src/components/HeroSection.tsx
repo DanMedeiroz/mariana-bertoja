@@ -1,5 +1,6 @@
 import { MessageCircle, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import marianaHero from "@/assets/mariana-hero.jpg";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -68,9 +69,9 @@ const HeroSection = () => {
                 
                 {/* A Imagem em si */}
                 <img 
-                  src="mariana-hero.jpg" 
+                  src={marianaHero} 
                   alt="Dra. Mariana Bertoja"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
 
                 {/* Gradiente Escuro na base para destacar o nome em branco */}
