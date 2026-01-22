@@ -1,5 +1,7 @@
 import { Award, Users, Scale, Target } from "lucide-react";
 import marianaAbout from "@/assets/mariana-about.jpg";
+import brandMockup from "@/assets/brand-mockup.jpg";
+import logoIcon from "@/assets/logo-icon.png";
 
 const AboutSection = () => {
   const highlights = [
@@ -26,12 +28,19 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="sobre" className="py-24 bg-background">
+    <section id="sobre" className="py-24 bg-background relative overflow-hidden">
+      {/* Decorative icon */}
+      <div className="hidden lg:block absolute top-16 right-16 opacity-[0.04]">
+        <img src={logoIcon} alt="" className="w-40 h-40" aria-hidden="true" />
+      </div>
+
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image */}
+          {/* Image Stack */}
           <div className="relative">
             <div className="absolute -top-6 -left-6 w-32 h-32 border-2 border-primary/30 rounded-lg" />
+            
+            {/* Main photo */}
             <div className="relative w-full aspect-[4/5] max-w-md mx-auto rounded-lg overflow-hidden shadow-xl">
               <img 
                 src={marianaAbout} 
@@ -39,6 +48,16 @@ const AboutSection = () => {
                 className="w-full h-full object-cover object-center"
               />
             </div>
+            
+            {/* Mockup overlay - positioned at bottom right */}
+            <div className="hidden sm:block absolute -bottom-8 -right-8 lg:-right-16 w-48 lg:w-56 rounded-lg overflow-hidden shadow-2xl border-4 border-background">
+              <img 
+                src={brandMockup} 
+                alt="Identidade visual Mariana Bertoja" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 rounded-lg -z-10" />
           </div>
 

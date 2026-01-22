@@ -1,20 +1,15 @@
 import logoWhite from "@/assets/logo-white.png";
-import brandPattern from "@/assets/brand-pattern.png";
+import logoIconWhite from "@/assets/logo-icon-white.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-primary text-primary-foreground py-12 relative overflow-hidden">
-      {/* Brand Pattern Background */}
-      <div 
-        className="absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage: `url(${brandPattern})`,
-          backgroundSize: '300px',
-          backgroundRepeat: 'repeat',
-        }}
-      />
+      {/* Decorative MB icon */}
+      <div className="absolute -right-16 -bottom-16 opacity-[0.08]">
+        <img src={logoIconWhite} alt="" className="w-64 h-64" aria-hidden="true" />
+      </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
