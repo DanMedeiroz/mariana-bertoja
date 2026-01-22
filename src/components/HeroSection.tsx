@@ -1,7 +1,7 @@
 import { MessageCircle, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import marianaHero from "@/assets/mariana-hero.jpg";
-import logoCircular from "@/assets/logo-circular.png";
+import logoIcon from "@/assets/logo-icon.png";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -16,12 +16,12 @@ const HeroSection = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary via-background to-background" />
       
-      {/* Decorative circular logo - hidden on mobile */}
-      <div className="hidden lg:block absolute top-32 left-8 opacity-[0.06] animate-fade-in" style={{ animationDelay: "1.5s" }}>
-        <img src={logoCircular} alt="" className="w-48 h-48" aria-hidden="true" />
+      {/* Decorative MB icons - hidden on mobile */}
+      <div className="hidden lg:block absolute top-28 left-12 opacity-[0.07] animate-fade-in" style={{ animationDelay: "1.5s" }}>
+        <img src={logoIcon} alt="" className="w-32 h-32" aria-hidden="true" />
       </div>
-      <div className="hidden lg:block absolute bottom-24 right-8 opacity-[0.04] animate-fade-in" style={{ animationDelay: "1.8s" }}>
-        <img src={logoCircular} alt="" className="w-64 h-64" aria-hidden="true" />
+      <div className="hidden lg:block absolute bottom-32 right-12 opacity-[0.05] animate-fade-in" style={{ animationDelay: "1.8s" }}>
+        <img src={logoIcon} alt="" className="w-48 h-48" aria-hidden="true" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
