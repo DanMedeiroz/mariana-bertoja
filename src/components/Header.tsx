@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoPrimary from "@/assets/logo-primary.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,18 +39,12 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between h-20">
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center transition-colors group-hover:border-primary/50">
-              <span className="text-primary font-heading text-2xl font-bold pt-1">MB</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-foreground font-heading text-xl font-semibold tracking-wide block leading-none">
-                Mariana Bertoja
-              </span>
-              <p className="text-muted-foreground text-[10px] tracking-[0.2em] uppercase mt-1 font-medium">
-                Advogada
-              </p>
-            </div>
+          <a href="#" className="flex items-center group">
+            <img 
+              src={logoPrimary} 
+              alt="Mariana Bertoja Advocacia" 
+              className="h-14 sm:h-16 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation */}
