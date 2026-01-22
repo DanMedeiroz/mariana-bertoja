@@ -43,7 +43,7 @@ const Header = () => {
             <img 
               src={logoPrimary} 
               alt="Mariana Bertoja Advocacia" 
-              className="h-14 sm:h-16 w-auto"
+              className="h-24 sm:h-28 w-auto -my-4"
             />
           </a>
 

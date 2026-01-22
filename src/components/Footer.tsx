@@ -23,7 +23,7 @@ const Footer = () => {
             <img 
               src={logoWhite} 
               alt="Mariana Bertoja Advocacia" 
-              className="h-20 w-auto"
+              className="h-28 sm:h-32 w-auto"
             />
           </div>
 
