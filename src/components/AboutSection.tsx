@@ -29,79 +29,86 @@ const AboutSection = () => {
   return (
     <SpotlightSection 
       id="sobre" 
-      className="py-12 md:py-24 bg-gradient-to-br from-[#783711] to-[#542508]"
-      spotlightColor="rgba(255, 255, 255, 0.03)"
+      className="py-16 md:py-24 bg-gradient-to-br from-[#783711] to-[#542508]"
+      spotlightColor="rgba(255, 255, 255, 0.05)"
     >
       <div className="container mx-auto px-4 lg:px-8 relative">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        
+        {/* LAYOUT GRID AVANÇADO:
+            - Mobile: flex-col (empilhado)
+            - Desktop: grid-cols-2 (50% / 50%)
+            - Landscape Mobile: grid-cols-[30%_70%] -> AQUI ESTÁ O TRUQUE!
+              (Dá 30% pra foto e 70% pro texto na horizontal)
+        */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 landscape:grid landscape:grid-cols-[30%_70%] gap-8 lg:gap-16 landscape:gap-6 items-center">
           
           {/* --- IMAGEM --- */}
-          <div className="order-last lg:order-first relative max-w-md mx-auto lg:max-w-none w-full">
-            <div className="hidden md:block absolute -top-6 -left-6 w-32 h-32 border-2 border-white/20 rounded-lg" />
-            <div className="hidden md:block absolute -bottom-6 -right-6 w-48 h-48 bg-white/5 rounded-lg -z-10" />
-            <div className="relative w-full aspect-[4/5] bg-muted rounded-xl overflow-hidden shadow-2xl border border-white/10">
+          {/* Mobile em pé: order-last (Fica embaixo do texto)
+              Desktop/Landscape: order-first (Fica na esquerda)
+          */}
+          <div className="order-last lg:order-first landscape:order-first relative max-w-sm mx-auto lg:max-w-none w-full group">
+            
+            {/* Elementos Decorativos */}
+            <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-24 h-24 md:w-32 md:h-32 border-2 border-white/20 rounded-lg transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2" />
+            <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-32 h-32 md:w-48 md:h-48 bg-white/5 rounded-lg -z-10 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
+            
+            {/* Container da Foto */}
+            <div className="relative w-full aspect-[3/4] md:aspect-[4/5] bg-muted rounded-xl overflow-hidden shadow-2xl border border-white/10">
               <img 
                 src={aboutImg} 
                 alt="Dra. Mariana Bertoja" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
+              <div className="absolute inset-0 bg-[#783711]/10 mix-blend-multiply pointer-events-none" />
             </div>
           </div>
 
           {/* --- CONTEÚDO TEXTUAL --- */}
           <div className="w-full text-left">
             
-            <div className="inline-flex items-center gap-2 text-white/90 text-sm font-medium tracking-widest uppercase mb-4">
-              <div className="w-8 h-px bg-white/50" />
-              Sobre
+            <div className="inline-flex items-center gap-2 text-white/80 text-xs md:text-sm font-medium tracking-widest uppercase mb-4 md:mb-6">
+              <div className="w-6 md:w-8 h-px bg-white/50" />
+              Sobre a Especialista
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-white mb-6 leading-tight">
               Dra. Mariana Bertoja
             </h2>
 
-            <div className="space-y-4 text-white/80 leading-relaxed mb-8 text-lg">
+            <div className="space-y-4 text-white/80 leading-relaxed mb-10 text-base md:text-lg landscape:text-base">
               <p>
-                À frente da <strong className="text-white">Mariana Bertoja Sociedade de Advogados</strong> desde 2021, 
+                À frente da <strong className="text-white font-semibold">Mariana Bertoja Sociedade de Advogados</strong> desde 2021, 
                 localizada em Gramado/RS, ofereço atendimento híbrido para clientes em todo o Brasil.
               </p>
               <p>
-                Minha missão é entregar <strong className="text-white">soluções jurídicas seguras e eficazes</strong> através 
-                de um atendimento próximo e personalizado, atuando para fornecer aconselhamento assertivo, 
-                mitigar riscos, evitar prejuízos, concretizar bons contratos e potencializar a geração de negócios.
+                Minha missão é entregar <strong className="text-white font-semibold">soluções jurídicas seguras e eficazes</strong> através 
+                de um atendimento próximo, atuando para fornecer aconselhamento assertivo, 
+                mitigar riscos, evitar prejuízos e potencializar a geração de negócios.
               </p>
               <p>
                 Acredito que a advocacia empresarial deve ir além do aspecto técnico-jurídico, 
-                compreendendo o <strong className="text-white">contexto de negócios</strong> de cada cliente para 
-                oferecer soluções verdadeiramente estratégicas.
+                compreendendo o <strong className="text-white font-semibold">contexto de negócios</strong> de cada cliente.
               </p>
             </div>
 
             {/* --- HIGHLIGHTS GRID --- */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Na landscape mobile, usamos grid-cols-2 para não ficar uma tripa comprida */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 landscape:grid-cols-2 gap-4">
               {highlights.map((item, index) => (
                 <div
                   key={index}
-                  className="p-4 rounded-xl bg-[#faf9f6] border border-transparent hover:scale-[1.02] transition-all duration-300 group shadow-lg"
+                  className="p-4 rounded-xl bg-[#faf9f6] border border-transparent hover:border-white/20 hover:-translate-y-1 transition-all duration-300 group/card shadow-lg"
                 >
                   <div className="flex items-start gap-4">
-                    
-                    {/* CONTAINER DO ÍCONE (BADGE) */}
-                    {/* group-hover:bg-[#783711] -> Fica Marrom Sólido ao passar o mouse */}
-                    <div className="w-10 h-10 rounded-lg bg-[#783711]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#783711] transition-colors duration-300">
-                      
-                      {/* ÍCONE */}
-                      {/* group-hover:text-white -> Fica Branco ao passar o mouse */}
-                      <item.icon className="w-5 h-5 text-[#783711] group-hover:text-white transition-colors duration-300" />
-                    
+                    <div className="w-10 h-10 rounded-lg bg-[#783711]/10 flex items-center justify-center flex-shrink-0 group-hover/card:bg-[#783711] transition-colors duration-300">
+                      <item.icon className="w-5 h-5 text-[#783711] group-hover/card:text-white transition-colors duration-300" />
                     </div>
                     
                     <div>
-                      <h3 className="font-semibold text-[#542508] mb-1 text-sm">
+                      <h3 className="font-bold text-[#542508] mb-1 text-sm md:text-base">
                         {item.title}
                       </h3>
-                      
-                      <p className="text-xs text-[#783711]/80 leading-relaxed">
+                      <p className="text-xs md:text-sm text-[#783711]/80 leading-relaxed">
                         {item.description}
                       </p>
                     </div>

@@ -1,21 +1,25 @@
 import { MapPin, ChevronDown } from "lucide-react";
-// Removi o import do Button pois não vamos mais usar
-
 import heroBgDesktop from "../assets/hero-bg-desktop.jpg";
 import heroBgMobile from "../assets/hero-bg-mobile.jpg"; 
 
 const HeroSection = () => {
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative w-full h-[100svh] min-h-[400px] md:min-h-[600px] flex flex-col md:flex-row landscape:flex-row items-center overflow-hidden">
       
       {/* --- BACKGROUNDS --- */}
+      
+      {/* MOBILE BG (Vertical): 
+          Adicionei 'landscape:hidden' para esconder essa foto quando deitar o celular */}
       <div 
-        className="absolute inset-0 z-0 md:hidden bg-cover bg-center"
+        className="absolute inset-0 z-0 md:hidden landscape:hidden bg-cover bg-[center_top]"
         style={{ backgroundImage: `url(${heroBgMobile})` }}
       />
+      
+      {/* DESKTOP BG (Horizontal): 
+          Adicionei 'landscape:block' para FORÇAR essa foto aparecer quando deitar */}
       <div 
-        className="absolute inset-0 z-0 hidden md:block bg-cover bg-no-repeat"
+        className="absolute inset-0 z-0 hidden md:block landscape:block bg-cover bg-no-repeat"
         style={{ 
           backgroundImage: `url(${heroBgDesktop})`,
           backgroundPosition: 'right center'
@@ -23,43 +27,49 @@ const HeroSection = () => {
       />
 
       {/* --- SOMBRAS (Overlays) --- */}
-      {/* Mobile: Gradiente reforçado no topo para leitura */}
-      <div className="absolute inset-0 z-10 md:hidden bg-gradient-to-b from-black/80 via-transparent to-transparent" />
       
-      {/* Desktop */}
-      <div className="absolute inset-0 z-10 hidden md:block bg-gradient-to-r from-background via-background/20 to-transparent" />
+      {/* Mobile Overlay: Esconde na landscape */}
+      <div className="absolute inset-0 z-10 md:hidden landscape:hidden bg-gradient-to-b from-black/80 via-black/20 to-transparent" />
       
-      {/* Luz Dourada */}
+      {/* Desktop Overlay: Mostra na landscape */}
+      <div className="absolute inset-0 z-10 hidden md:block landscape:block bg-gradient-to-r from-background via-background/20 to-transparent" />
+      
+      {/* Elemento Decorativo */}
       <div className="absolute top-0 left-0 w-full h-full z-10 bg-primary/5 mix-blend-overlay pointer-events-none"></div>
 
 
-      {/* --- CONTEÚDO --- */}
-      <div className="
-          container mx-auto px-4 lg:px-8 relative z-20 h-full 
-          flex flex-col 
-          
-          /* MOBILE: Alinha no topo e puxa para cima com margem negativa */
-          justify-start -mt-[350px] 
-          
-          /* DESKTOP (CORREÇÃO AQUI): Zera a margem negativa e centraliza verticalmente */
-          md:mt-0 md:justify-center
-      ">
+      {/* --- CONTEÚDO PRINCIPAL --- */}
+      <div className="container relative z-20 h-full mx-auto px-4 lg:px-8 flex flex-col justify-center">
+        
+        {/* ESPAÇADOR MOBILE: 
+            Adicionei 'landscape:hidden'.
+            Quando deitar o celular, não queremos esse espaço vazio no topo, 
+            queremos que o texto fique centralizado ao lado da foto. */}
+        <div className="h-[15svh] md:hidden landscape:hidden shrink-0"></div>
 
-        <div className="max-w-3xl w-full mx-auto md:mx-0">
+        {/* ÁREA DO TEXTO */}
+        <div className="
+             flex flex-col 
+             justify-start md:justify-center landscape:justify-center
+             h-full md:h-auto landscape:h-auto
+             max-w-3xl w-full 
+             text-left
+             /* Na landscape, limitamos a largura para não pegar na foto da Mariana */
+             landscape:max-w-[50%] md:max-w-xl
+        ">
           
-          {/* Título Principal */}
+          {/* Título */}
           <h1 className="
-              text-3xl sm:text-4xl lg:text-6xl 
+              text-3xl xs:text-4xl sm:text-5xl lg:text-6xl 
               font-serif font-bold tracking-tight 
-              text-white md:text-foreground 
-              leading-tight 
-              mb-3 md:mb-6 
-              text-left   /* Mobile: Direita | Desktop: Esquerda */
+              text-white md:text-foreground landscape:text-foreground
+              leading-[1.1] 
+              mb-4 
               opacity-0 animate-fade-in" 
               style={{ animationDelay: "0.4s" }}
           >
             Soluções jurídicas que{" "}
-            <span className="text-primary">
+            <span className="text-primary block md:inline landscape:inline">
               potencializam
             </span>{" "}
             seu negócio
@@ -67,47 +77,47 @@ const HeroSection = () => {
 
           {/* Parágrafo */}
           <p className="
-              text-lg sm:text-xl 
-              text-gray-200 md:text-muted-foreground 
+              text-base xs:text-lg sm:text-xl 
+              text-gray-200 md:text-muted-foreground landscape:text-muted-foreground
               leading-relaxed 
-              mb-6 md:mb-10 
-              max-w-xl 
-              ml-auto md:ml-0           /* Joga para a direita no Mobile */
-              text-left   /* Alinha texto à direita no Mobile */
+              mb-6 md:mb-10 landscape:mb-6
+              max-w-[90%] md:max-w-xl 
               opacity-0 animate-fade-in" 
               style={{ animationDelay: "0.6s" }}
           >
             Atendimento personalizado e especializado para empresas que buscam 
-            segurança <br className="md:hidden" />jurídica, mitigação de riscos e <br className="md:hidden" />crescimento sustentável.
+            segurança jurídica, mitigação de riscos e crescimento sustentável.
           </p>
 
-          {/* Localização (Pin) */}
+          {/* Localização */}
           <div className="
-              flex flex-col md:flex-row 
-              items-start md:items-center 
-              justify-start 
-              gap-3
-              mr-auto md:ml-0 
-              text-gray-300 md:text-muted-foreground 
+              flex flex-col sm:flex-row 
+              items-start sm:items-center 
+              gap-3 
+              text-gray-300 md:text-muted-foreground landscape:text-muted-foreground
               opacity-0 animate-fade-in" 
               style={{ animationDelay: "1s" }}
           >
-            <div className="p-2 rounded-full bg-primary/20 md:bg-primary/10 border border-primary/20">
-               <MapPin className="w-4 h-4 text-primary" />
-            </div>
-            <span className="text-sm font-medium tracking-wide text-left">
-              Gramado/RS
-              <span className="block md:inline md:before:content-['_•_']">
-                Atendimento em <br className="md:hidden" />todo Brasil
+            <div className="flex items-center gap-2">
+              <div className="p-2 rounded-full bg-primary/20 md:bg-primary/10 border border-primary/20 shrink-0">
+                 <MapPin className="w-4 h-4 text-primary" />
+              </div>
+              <span className="text-sm font-medium tracking-wide">
+                Gramado/RS
+                <span className="hidden sm:inline"> • </span>
               </span>
+            </div>
+            
+            <span className="text-sm font-medium tracking-wide pl-11 sm:pl-0">
+               Atendimento em todo Brasil
             </span>
           </div>
 
         </div>
       </div>
 
-      {/* Indicador de Scroll */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 opacity-0 animate-fade-in flex flex-col items-center gap-2 text-white/50 md:text-foreground/50" style={{ animationDelay: "1.5s" }}>
+      {/* Indicador de Scroll (Escondemos se a altura for muito pequena na landscape) */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 opacity-0 animate-fade-in flex flex-col items-center gap-2 text-white/50 md:text-foreground/50 landscape:text-foreground/50 landscape:hidden" style={{ animationDelay: "1.5s" }}>
         <ChevronDown className="w-6 h-6 animate-bounce" />
       </div>
 
