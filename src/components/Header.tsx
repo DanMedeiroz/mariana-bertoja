@@ -58,14 +58,10 @@ const Header = () => {
   const useWhiteText = !isMobileMenuOpen && (!isScrolled || isOverDarkSection);
 
   // 2. LOGO MOBILE:
-  // No celular, a logo deve ser BRANCA no topo (Hero) OU sobre seções escuras.
   const useWhiteLogoMobile = !isMobileMenuOpen && (!isScrolled || isOverDarkSection);
   const mobileLogoSrc = useWhiteLogoMobile ? logoMobile : logoDesktop;
 
   // 3. LOGO DESKTOP:
-  // No desktop, a logo deve ser MARROM no topo (Hero).
-  // Ela só fica BRANCA se estiver sobre seções escuras (Sobre/Depoimentos).
-  // Note que removi o "!isScrolled" daqui.
   const useWhiteLogoDesktop = !isMobileMenuOpen && isOverDarkSection;
   const desktopLogoSrc = useWhiteLogoDesktop ? logoMobile : logoDesktop;
 
@@ -85,29 +81,31 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-8 relative h-20 md:h-20 flex items-center justify-between">
         
         {/* LOGO */}
+        {/* Adicionado: landscape:static landscape:translate-y-0 */}
         <a 
           href="#" 
-          className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 group z-20 md:static md:translate-y-0"
+          className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 group z-20 md:static md:translate-y-0 landscape:static landscape:translate-y-0"
         >
-          {/* IMAGEM MOBILE (Usa mobileLogoSrc) */}
+          {/* IMAGEM MOBILE (Some no Desktop e na Landscape) */}
           <img 
             src={mobileLogoSrc} 
             alt="Mariana Bertoja Advocacia" 
-            className="w-76 max-w-[80vw] h-auto object-contain md:hidden transition-opacity duration-300"
+            className="w-76 max-w-[80vw] h-auto object-contain md:hidden landscape:hidden transition-opacity duration-300"
           />
           
-          {/* IMAGEM DESKTOP (Usa desktopLogoSrc) */}
+          {/* IMAGEM DESKTOP (Aparece no Desktop e na Landscape) */}
           <img  
             src={desktopLogoSrc} 
             alt="Mariana Bertoja Advocacia" 
-            className="hidden md:block h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="hidden md:block landscape:block h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
-        <div className="hidden md:flex flex-1" />
+        {/* Espaçador flex (Aparece no Desktop e na Landscape) */}
+        <div className="hidden md:flex landscape:flex flex-1" />
         
-        {/* LINKS DESKTOP */}
-        <div className="hidden md:flex items-center gap-8 animate-in fade-in slide-in-from-top-2 duration-300">
+        {/* LINKS DESKTOP (Aparecem no Desktop e na Landscape) */}
+        <div className="hidden md:flex landscape:flex items-center gap-8 animate-in fade-in slide-in-from-top-2 duration-300">
           {navLinks.map((link) => (
             <button
               key={link.href}
@@ -125,9 +123,9 @@ const Header = () => {
           ))}
         </div>
 
-        {/* BOTÃO HAMBÚRGUER */}
+        {/* BOTÃO HAMBÚRGUER (Some no Desktop e na Landscape) */}
         <button
-          className={`md:hidden p-2 ml-auto transition-all duration-300 relative z-30 ${
+          className={`md:hidden landscape:hidden p-2 ml-auto transition-all duration-300 relative z-30 ${
             useWhiteText ? "text-white" : "text-[#783711]"
           }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -137,9 +135,10 @@ const Header = () => {
 
       </div>
 
-      {/* --- MENU MOBILE --- */}
+      {/* --- MENU MOBILE DROPDOWN --- */}
+      {/* (Some no Desktop e na Landscape) */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-xl animate-in slide-in-from-top-2 z-10">
+        <div className="md:hidden landscape:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-xl animate-in slide-in-from-top-2 z-10">
           <div className="flex flex-col py-2">
             {navLinks.map((link) => (
               <button

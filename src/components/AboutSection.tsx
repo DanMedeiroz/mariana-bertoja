@@ -34,19 +34,20 @@ const AboutSection = () => {
     >
       <div className="container mx-auto px-4 lg:px-8 relative">
         
-        {/* LAYOUT GRID AVANÇADO:
-            - Mobile: flex-col (empilhado)
-            - Desktop: grid-cols-2 (50% / 50%)
-            - Landscape Mobile: grid-cols-[30%_70%] -> AQUI ESTÁ O TRUQUE!
-              (Dá 30% pra foto e 70% pro texto na horizontal)
-        */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 landscape:grid landscape:grid-cols-[30%_70%] gap-8 lg:gap-16 landscape:gap-6 items-center">
+        {/* --- TAG CENTRALIZADA NO TOPO --- */}
+        <div className="text-center w-full mb-10 lg:mb-16">
+          <div className="inline-flex items-center justify-center gap-2 text-white/80 text-xs md:text-sm font-medium tracking-widest uppercase">
+            <div className="w-6 md:w-8 h-px bg-white/50" />
+            Sobre a Especialista
+            <div className="w-6 md:w-8 h-px bg-white/50" />
+          </div>
+        </div>
+
+        {/* LAYOUT: Imagem + Textos */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           {/* --- IMAGEM --- */}
-          {/* Mobile em pé: order-last (Fica embaixo do texto)
-              Desktop/Landscape: order-first (Fica na esquerda)
-          */}
-          <div className="order-last lg:order-first landscape:order-first relative max-w-sm mx-auto lg:max-w-none w-full group">
+          <div className="order-last lg:order-first relative max-w-sm mx-auto lg:max-w-none w-full group">
             
             {/* Elementos Decorativos */}
             <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-24 h-24 md:w-32 md:h-32 border-2 border-white/20 rounded-lg transition-transform duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2" />
@@ -66,16 +67,12 @@ const AboutSection = () => {
           {/* --- CONTEÚDO TEXTUAL --- */}
           <div className="w-full text-left">
             
-            <div className="inline-flex items-center gap-2 text-white/80 text-xs md:text-sm font-medium tracking-widest uppercase mb-4 md:mb-6">
-              <div className="w-6 md:w-8 h-px bg-white/50" />
-              Sobre a Especialista
-            </div>
-
+            {/* --- NOME DE VOLTA À ESQUERDA --- */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-white mb-6 leading-tight">
               Dra. Mariana Bertoja
             </h2>
 
-            <div className="space-y-4 text-white/80 leading-relaxed mb-10 text-base md:text-lg landscape:text-base">
+            <div className="space-y-4 text-white/80 leading-relaxed mb-10 text-base md:text-lg">
               <p>
                 À frente da <strong className="text-white font-semibold">Mariana Bertoja Sociedade de Advogados</strong> desde 2021, 
                 localizada em Gramado/RS, ofereço atendimento híbrido para clientes em todo o Brasil.
@@ -92,8 +89,7 @@ const AboutSection = () => {
             </div>
 
             {/* --- HIGHLIGHTS GRID --- */}
-            {/* Na landscape mobile, usamos grid-cols-2 para não ficar uma tripa comprida */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 landscape:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {highlights.map((item, index) => (
                 <div
                   key={index}

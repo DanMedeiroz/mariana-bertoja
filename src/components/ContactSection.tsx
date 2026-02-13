@@ -1,6 +1,7 @@
 import { MessageCircle, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import gridMarrom from "../assets/7606445.jpg";
+import backgroundDT from "../assets/7606445.jpg";
+import backgroundMB from "../assets/2629.png";
 
 const ContactSection = () => {
   const whatsappNumber = "5500000000000"; 
@@ -12,27 +13,27 @@ const ContactSection = () => {
   return (
     <section 
       id="contato" 
-      className="py-24 relative overflow-hidden bg-primary"
+      className="py-12 md:py-20 relative overflow-hidden bg-primary"
     >
-      {/* --- SOLUÇÃO DE ROTAÇÃO DA IMAGEM --- */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="
-            absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-            w-[130vh] h-[100vw] 
-            md:w-full md:h-full 
-            -rotate-90 md:rotate-0
-            origin-center
-        ">
-            <img 
-              src={gridMarrom} 
-              alt="Background Texture" 
-              /* MUDANÇA AQUI:
-                 - Adicionei 'object-bottom' para o mobile (pega a parte de baixo da imagem).
-                 - Adicionei 'md:object-center' para voltar ao centro no desktop.
-              */
-              className="w-full h-full object-cover object-bottom md:object-center opacity-100"
-            />
-        </div>
+      {/* --- BACKGROUND RESPONSIVO CORRIGIDO --- */}
+      {/* Simplifiquei as divs para garantir que as imagens preencham 100% do espaço vertical */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        
+        {/* IMAGEM DESKTOP */}
+        <img 
+          src={backgroundDT} 
+          alt="Background Desktop" 
+          className="hidden md:block max-lg:landscape:block absolute inset-0 w-full h-full object-cover object-center opacity-100"
+        />
+
+        {/* IMAGEM MOBILE */}
+        <img 
+          src={backgroundMB} 
+          alt="Background Mobile" 
+          /* absolute inset-0 força a colar no teto. object-bottom puxa o padrão para preencher tudo */
+          className="block md:hidden max-lg:landscape:hidden absolute inset-0 w-full h-full object-cover object-bottom opacity-100"
+        />
+
       </div>
       
       {/* Overlay Escuro */}
@@ -46,7 +47,7 @@ const ContactSection = () => {
         <div className="max-w-4xl mx-auto">
           
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             <div className="inline-flex items-center gap-2 text-white/80 text-sm font-medium tracking-widest uppercase mb-4">
               <div className="w-8 h-px bg-white/50" />
               Contato
@@ -64,7 +65,7 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Card (Glassmorphism) */}
-          <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-8 lg:p-12 shadow-2xl mb-8 md:mb-0">
+          <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-12 shadow-2xl mb-4 md:mb-0">
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
               
               {/* Info Esquerda */}
